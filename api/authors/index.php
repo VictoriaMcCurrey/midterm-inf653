@@ -11,8 +11,10 @@
     
     if ($method == 'GET') {
         if(isset($_GET['id']) == null){
-        include 'read.php';
-        } else include 'read_single.php';
+            include 'read.php';
+        } else {
+            include 'read_single.php';
+        }
     } elseif ($method == 'POST') {
         include 'create.php';
     } elseif ($method == 'PUT') {
