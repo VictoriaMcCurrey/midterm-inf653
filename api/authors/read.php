@@ -34,12 +34,13 @@
         }
 
         // Turn to JSON & output
-        print_r(json_encode($author_arr));
+        echo json_encode($author_arr);
 
     } else {
         // No categories
         echo json_encode(
             array('Message' => 'No Author Found')
         );
-        exit();
+        
     }
+exit();
