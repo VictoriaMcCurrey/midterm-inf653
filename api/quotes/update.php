@@ -21,11 +21,15 @@
     // UPDATE quote
     if($quote -> update()) {
         echo json_encode(
-            array('Message' => 'Quote Updated')
-        );
+            array('id' => $quote->id,
+                  'quote' => $quote->quote,
+                  'authorId' => $quote->authorId,
+                  'categoryId' => $quote->categoryId 
+            ));
     } else {
         echo json_encode(
-            array('Message' => 'Quote Not Updated')
+            array('message' => 'quote not updated')
         );
+    
+    } 
     exit();
-    }
