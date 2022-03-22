@@ -10,7 +10,7 @@
     include_once '../../models/Author.php';
     
     if ($method == 'GET') {
-        if(isset($_GET['id']) == null){
+        if(isset($_GET['id']) == false){
             include 'read.php';
         } else {
             include 'read_single.php';
