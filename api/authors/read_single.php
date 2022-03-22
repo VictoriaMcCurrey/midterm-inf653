@@ -22,5 +22,12 @@
     );
 
     // Make JSON
-    print_r(json_encode($author_arr));
+    if($author -> id !== null) {
+        print_r(json_encode($author_arr));
+    }
+    else {
+        echo json_encode(
+            array('message' => 'No Author Found')
+        );
+    }
     exit();
