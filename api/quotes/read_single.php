@@ -1,11 +1,4 @@
 <?php
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
-    $method = $_SERVER['REQUEST_METHOD'];
-    if ($method === 'OPTIONS') {
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
-    }
     include_once '../../config/Database.php';
     include_once '../../models/Quote.php';
 
@@ -17,7 +10,7 @@
     $quote = new Quote($db);
 
     // GET ID
-    $quote -> id = isset($_GET['id']) ? $_GET['id'] : die();
+    $quote -> id = isset($_GET['id']) ? $_GET['id'] : die(include 'read.php');
 
     // Get quote 
     $quote -> read_single();
