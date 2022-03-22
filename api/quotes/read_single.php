@@ -10,7 +10,7 @@
     $quote = new Quote($db);
 
     // GET ID
-    $quote -> id = isset($_GET['id']) ? $_GET['id'] : die(include 'read.php');
+    $quote -> id = isset($_GET['id']) ? $_GET['id'] : die();
 
     // Get quote 
     $quote -> read_single();
