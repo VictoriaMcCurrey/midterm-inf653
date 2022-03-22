@@ -23,6 +23,12 @@
         'category' => $quote -> category
     );
 
-    // Make JSON
-    print_r(json_encode($quote_arr));
+    if($quote -> id !== null) {
+        print_r(json_encode($quote_arr));
+    }
+    else {
+        echo json_encode(
+            array('message' => 'No Quotes Found')
+        );
+    }
 exit();
