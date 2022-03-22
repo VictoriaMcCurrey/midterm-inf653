@@ -10,7 +10,7 @@
     $category = new Category($db);
 
     // GET ID
-    $category -> id = isset($_GET['id']) ? $_GET['id'] : die(include 'read.php');
+    $category -> id = isset($_GET['id']) ? $_GET['id'] : die();
 
     // Get category 
     $category -> read_single();
