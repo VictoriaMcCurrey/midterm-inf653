@@ -22,5 +22,12 @@
     );
 
     // Make JSON
-    print_r(json_encode($category_arr));
+    if($category -> id !== null) {
+        print_r(json_encode($category_arr));
+    }
+    else {
+        echo json_encode(
+            array('message' => 'No Category Found')
+        );
+    }
 exit();
