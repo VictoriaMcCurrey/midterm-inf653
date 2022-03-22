@@ -20,11 +20,15 @@
     // Create quote
     if($quote -> create()) {
         echo json_encode(
-            array('Message' => 'Quote Created')
+            array(
+                'id' => $db->lastInsertId(),
+                'quote' => $quote->quote,
+                'authorId' => $quote->authorId,
+                'categoryId' => $quote->categoryId)
         );
     } else {
         echo json_encode(
-            array('Message' => 'Quote Not Created')
+            array('message' => 'quote not created')
         );
         exit();
     }
