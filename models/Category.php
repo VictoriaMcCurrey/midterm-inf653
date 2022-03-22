@@ -63,18 +63,15 @@
         // Create Query
         $query = 'INSERT INTO ' . $this -> table . '
          SET
-            id = :id,
             category = :category';
     
         // Prepare Statement
         $stmt = $this -> conn -> prepare($query);
     
         // Clean Data
-        $this -> id = htmlspecialchars(strip_tags($this -> id));
         $this -> category = htmlspecialchars(strip_tags($this -> category));
     
         // Bind Data
-        $stmt -> bindParam(':id', $this -> id);
         $stmt -> bindParam(':category', $this -> category);
     
         // Execute Query
