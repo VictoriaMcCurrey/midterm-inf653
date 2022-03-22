@@ -63,18 +63,15 @@
         // Create Query
         $query = 'INSERT INTO ' . $this -> table . '
         SET
-           id = :id,
            author = :author';
 
         // Prepare Statement
         $stmt = $this -> conn -> prepare($query);
 
         // Clean Data
-        $this -> id = htmlspecialchars(strip_tags($this -> id));
         $this -> author = htmlspecialchars(strip_tags($this -> author));
 
         // Bind Data
-        $stmt -> bindParam(':id', $this -> id);
         $stmt -> bindParam(':author', $this -> author);
 
         // Execute Query
