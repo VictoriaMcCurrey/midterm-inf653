@@ -23,7 +23,7 @@
             LEFT JOIN
                 authors ON authors.id = quotes.authorId
             LEFT JOIN 
-                categories ON categories.id = quotes.categoryID
+                categories ON categories.id = quotes.categoryId
             ORDER BY
                 quotes.id DESC';
 
@@ -56,6 +56,7 @@
     
         // Bind id
         $stmt -> bindParam(1, $this -> id);
+
     
         // Execute Query
         $stmt -> execute();
@@ -67,6 +68,86 @@
         $this -> quote = $row['quote'];
         $this -> author = $row['author'];
         $this -> category = $row['category'];
+    }
+
+    // Start Get all quotes by an author ID
+    public function read_authorId() {
+    
+        $query = 'SELECT 
+                quotes.id, quotes.quote, authors.author, categories.category
+             FROM
+                ' . $this -> table . ' quotes
+            LEFT JOIN
+                authors ON authors.id = quotes.authorId
+            LEFT JOIN 
+                categories ON categories.id = quotes.categoryId
+            WHERE 
+                quotes.authorId = :authorId';
+
+        // prepare
+        $stmt = $this -> conn -> prepare($query);    
+  
+        // Bind AuthorId
+        $stmt -> bindParam(':authorId', $this -> authorId);
+   
+        // Execute
+        $stmt->execute();    
+    
+        return $stmt;
+
+    }
+
+    public function read_categoryId() {
+    
+        $query = 'SELECT 
+                quotes.id, quotes.quote, authors.author, categories.category
+             FROM
+                ' . $this -> table . ' quotes
+            LEFT JOIN
+                authors ON authors.id = quotes.authorId
+            LEFT JOIN 
+                categories ON categories.id = quotes.categoryId
+            WHERE 
+                quotes.categoryId = :categoryId';
+
+        // prepare
+        $stmt = $this -> conn -> prepare($query);    
+  
+        // Bind categoryId
+        $stmt -> bindParam(':categoryId', $this -> categoryId);
+   
+        // Execute
+        $stmt->execute();    
+    
+        return $stmt;
+
+    }
+
+    public function read_authorId_categoryId() {
+    
+        $query = 'SELECT 
+                quotes.id, quotes.quote, authors.author, categories.category
+             FROM
+                ' . $this -> table . ' quotes
+            LEFT JOIN
+                authors ON authors.id = quotes.authorId
+            LEFT JOIN 
+                categories ON categories.id = quotes.categoryId
+            WHERE 
+                quotes.authorId = :authorId && quotes.categoryId = :categoryId';
+
+        // prepare
+        $stmt = $this -> conn -> prepare($query);    
+  
+        // Bind AuthorId
+        $stmt -> bindParam(':authorId', $this -> authorId);
+        $stmt -> bindParam(':categoryId', $this -> categoryId);
+   
+        // Execute
+        $stmt->execute();    
+    
+        return $stmt;
+
     }
 
     // Create quote
