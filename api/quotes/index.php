@@ -9,16 +9,25 @@
     include_once '../../config/Database.php';
     include_once '../../models/Quote.php';
     
-    if ($method == 'GET') {
-        if(isset($_GET['id']) == false){
-        include 'read.php';
-        } else {
-            include 'read_single.php';
-        }
+    $filterId = filter_input(INPUT_GET, "id");
+    $filterAuthorId = filter_input(INPUT_GET, "authorId");
+    $filterCategoryId = filter_input(INPUT_GET, "categoryId");
+
+    
+    if (!empty($filterId) && $method == 'GET') {
+        include 'read_single.php';
+    } elseif (!empty($filterAuthorId) && $method == 'GET') {
+        include 'read_authorId.php';
+    } elseif (!empty($filterCategoryId) && $method == 'GET') {
+        include 'read_categoryId.php';
+    } elseif (!empty($filterAuthorId) && !empty($filterCategoryId) && $method == 'GET') {
+        include 'read_authorId_categoryId.php';
     } elseif ($method == 'POST') {
         include 'create.php';
     } elseif ($method == 'PUT') {
         include 'update.php';
     } elseif ($method == 'DELETE') {
         include 'delete.php';
-    } 
+    } elseif ($method == 'GET') {
+        include 'read.php';
+    }
