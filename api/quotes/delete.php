@@ -15,14 +15,16 @@
     // Set ID to DELETE
     $quote -> id = $data -> id;
 
+    $quote -> delete()
+
     // DELETE quote
-    if($quote -> delete()) {
+    if($quote -> id !==null) {
         echo json_encode(
-            array('Message' => 'Quote Deleted')
+            array('id' => $quote -> id)
         );
     } else {
         echo json_encode(
-            array('Message' => 'Quote Not Deleted')
+            array('message' => 'No Quotes Found')
         );
-        exit();
     }
+    exit();
