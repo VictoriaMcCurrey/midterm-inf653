@@ -27,7 +27,7 @@
 
             $quote_item = array(
                 'id' => $id,
-                'quote' => $quote,
+                'quote' => html_entity_decode($quote),
                 'author' => $author,
                 'category' => $category
             );
@@ -36,13 +36,14 @@
             array_push($quote_arr['data'], $quote_item);
         }
 
+
         // Turn to JSON & output
-        echo json_encode($quote_arr);
+        print_r(json_encode($quote_arr));
 
     } else {
         // No categories
         echo json_encode(
-            array('Message' => 'Quote Not Found')
-        );
-        exit();
+            array('message' => 'No quotes found')
+        ); 
     }
+    exit();
