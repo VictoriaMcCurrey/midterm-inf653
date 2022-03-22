@@ -10,7 +10,11 @@
     include_once '../../models/Category.php';
     
     if ($method == 'GET') {
-        include 'read_single.php';
+        if(isset($_GET['id']) == false){
+        include 'read.php';
+        } else {
+            include 'read_single.php';
+        }
     } elseif ($method == 'POST') {
         include 'create.php';
     } elseif ($method == 'PUT') {
