@@ -21,19 +21,19 @@
     // Check for  missing parameters
     if($quote -> id == null) {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } elseif ($quote -> quote == null) {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } elseif ($quote -> authorId == null) {
         echo json_encode(
-            array('Message' => 'authorId Not Found'));
+            array('message' => 'authorId Not Found'));
             exit();
     } elseif ($quote -> categoryId == null) {
         echo json_encode(
-            array('Message' => 'categoryId Not Found'));
+            array('message' => 'categoryId Not Found'));
             exit();
     } 
     
