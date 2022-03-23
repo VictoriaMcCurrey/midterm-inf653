@@ -1,6 +1,6 @@
 <?php
     include_once '../../config/Database.php';
-    include_once '../../models/category.php';
+    include_once '../../models/Category.php';
 
     // Instantiate DB & Connect
     $database = new Database();
