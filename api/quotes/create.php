@@ -20,22 +20,20 @@
     // Check for  missing parameters
     if($quote -> quote == null) {
         echo json_encode(
-            array('message' => 'Missing Required Parameters'));
+            array('Message' => 'Missing Required Parameters'));
             exit();
     } elseif ($quote -> authorId == null) {
         echo json_encode(
-            array('message' => 'Missing Required Parameters'));
+            array('Message' => 'Missing Required Parameters'));
             exit();
     } elseif ($quote -> categoryId == null) {
         echo json_encode(
-            array('message' => 'Missing Required Parameters'));
+            array('Message' => 'Missing Required Parameters'));
             exit();
     } 
 
-    $quote -> create()
-
     // Create quote
-    if($quote !== null) {
+    if($quote -> create()) {
         echo json_encode(
             array(
                 'id' => $db->lastInsertId(),
@@ -47,5 +45,5 @@
         echo json_encode(
             array('message' => 'No Quotes Found')
         );
+        exit();
     }
-    exit();
