@@ -25,7 +25,7 @@
         );
     } else {
         echo json_encode(
-            array('Message' => 'Author Not Deleted')
+            array('message' => 'Author Not Deleted')
         );
     }
     exit();
