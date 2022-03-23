@@ -15,6 +15,17 @@
     // Set ID to UPDATE
     $author -> id = $data -> id;
     $author -> author = $data -> author;
+
+    // Check for  missing parameters
+    if($author -> id == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    } elseif ($author -> author == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    }
     
     // UPDATE author
     if($author -> update()) {
