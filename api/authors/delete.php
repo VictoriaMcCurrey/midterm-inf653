@@ -16,13 +16,20 @@
     $author -> id = $data -> id;
 
     // DELETE author
-    if($author -> delete()) {
-        echo json_encode(
-            array('id' => $author -> id )
-        );
-    } else {
-        echo json_encode(
-            array('message' => 'Author not Deleted')
-        );
-    }
+    $author -> delete();
+
+    // Print JSON array
+    echo json_encode(
+        array('id' => $data -> id ));
+
+    // DELETE author
+   // if($author -> delete()) {
+   //     echo json_encode(
+   //         array('id' => $author -> id )
+   //     );
+   // } else {
+  //      echo json_encode(
+  //          array('message' => 'Author not Deleted')
+  //      );
+  //  }
     exit();
