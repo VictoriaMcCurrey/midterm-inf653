@@ -15,16 +15,14 @@
     // Set ID to DELETE
     $author -> id = $data -> id;
 
-    $author -> delete();
-
     // DELETE author
-    if($author -> id !== null) {
+    if($author->delete()) {
         echo json_encode(
-            array('id' => $author -> id)
+            array('id' => $author->id )
         );
     } else {
         echo json_encode(
-            array('message' => 'Author Not Deleted')
+            array('message' => 'Author not Deleted')
         );
     }
     exit();
