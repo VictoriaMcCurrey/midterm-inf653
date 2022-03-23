@@ -12,8 +12,14 @@
     // Get Raw Data
     $data = json_decode(file_get_contents("php://input"));
 
-    $category -> id = $data -> id;
+
     $category -> category = $data -> category;
+
+    if ($category -> category == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    }
 
     // Create category
     if($category -> create()) {
