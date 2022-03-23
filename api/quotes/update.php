@@ -29,11 +29,11 @@
             exit();
     } elseif ($quote -> authorId == null) {
         echo json_encode(
-            array('message' => 'authorId Not Found'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } elseif ($quote -> categoryId == null) {
         echo json_encode(
-            array('message' => 'categoryId Not Found'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } 
     
