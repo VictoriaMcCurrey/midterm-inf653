@@ -30,4 +30,4 @@
             array('message' => 'No Category Found')
         );
     }
-exit();
+    exit();
