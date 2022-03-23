@@ -24,16 +24,18 @@
             exit();
     } elseif ($quote -> authorId == null) {
         echo json_encode(
-            array('message' => 'authorId Not Found'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } elseif ($quote -> categoryId == null) {
         echo json_encode(
-            array('message' => 'categoryId Not Found'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } 
 
+    $quote -> create()
+
     // Create quote
-    if($quote -> create()) {
+    if($quote !== null) {
         echo json_encode(
             array(
                 'id' => $db->lastInsertId(),
@@ -45,5 +47,5 @@
         echo json_encode(
             array('message' => 'No Quotes Found')
         );
-        exit();
     }
+    exit();
