@@ -7,6 +7,6 @@
     <title>Victoria McCurrey's Midterm</title>
 </head>
 <body>
-    <h1>Victoria McCurrey's Midterm</h1>
+    <h1>Victoria McCurrey's Midterm INF653</h1>
 </body>
 </html>
