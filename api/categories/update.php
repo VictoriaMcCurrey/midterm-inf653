@@ -15,6 +15,17 @@
     // Set ID to UPDATE
     $category -> id = $data -> id;
     $category -> category = $data -> category;
+
+    // Check for  missing parameters
+    if($category -> id == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    } elseif ($category -> category == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    }
     
     // UPDATE category
     if($category -> update()) {
