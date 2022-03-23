@@ -40,7 +40,7 @@
     // UPDATE quote
     if($quote -> update()) {
         echo json_encode(
-            array('id' => $db->lastInsertId(),
+            array('id' => $quote->id,
                   'quote' => $quote->quote,
                   'authorId' => $quote->authorId,
                   'categoryId' => $quote->categoryId 
