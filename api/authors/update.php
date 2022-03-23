@@ -30,7 +30,7 @@
     // UPDATE author
     if($author -> update()) {
         echo json_encode(
-            array('id' => $db->lastInsertId(),
+            array('id' => $author -> id,
                   'author' => $author -> author
             ));
     } else {
