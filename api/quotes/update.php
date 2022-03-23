@@ -21,15 +21,14 @@
     // UPDATE quote
     if($quote -> update()) {
         echo json_encode(
-            array('id' => $quote->id,
+            array('id' => $quote ->id,
                   'quote' => $quote->quote,
                   'authorId' => $quote->authorId,
                   'categoryId' => $quote->categoryId 
             ));
     } else {
         echo json_encode(
-            array('message' => 'quote not updated')
+            array('message' => 'Missing Required Parameters')
         );
-    
-    } 
+    }
     exit();
