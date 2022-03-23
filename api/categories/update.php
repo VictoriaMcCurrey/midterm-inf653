@@ -19,8 +19,9 @@
     // UPDATE category
     if($category -> update()) {
         echo json_encode(
-            array('Message' => 'Category Updated')
-        );
+            array('id' => $category -> id,
+                  'category' => $category -> category
+            ));
     } else {
         echo json_encode(
             array('Message' => 'Category Not Updated')
