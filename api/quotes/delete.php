@@ -15,10 +15,10 @@
     // Set ID to DELETE
     $quote -> id = $data -> id;
 
-    $quote -> delete()
+    $quote -> delete();
 
     // DELETE quote
-    if($quote -> id !==null) {
+    if($quote -> id !== null) {
         echo json_encode(
             array('id' => $quote -> id)
         );
