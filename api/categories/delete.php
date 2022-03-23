@@ -13,21 +13,18 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // Set ID to DELETE
-  $category->id = $data->id;
+    $category -> id = $data -> id;
 
-  // Delete post
-  $response = $category->delete();
-  if($response > 0) {
-    echo json_encode(
-      array('id' => $category->id)
-    );
-  } else if($response == -1){
-    echo json_encode(
-      array('message' => 'Cant delete: foreign key in use')
-    );
-  }else {
-    echo json_encode(
-      array('message' => 'categoryId Not Found')
-    );
-  }
+    // DELETE category
+    $category -> delete();
+
+    if($category -> id !== null) {
+        echo json_encode(
+            array('id' => $category -> id)
+        );
+    } else {
+        echo json_encode(
+            array('message' => 'category Not Deleted')
+        );
+    }
     exit();
