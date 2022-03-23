@@ -18,11 +18,13 @@
     // Create category
     if($category -> create()) {
         echo json_encode(
-            array('Message' => 'Category Created')
-        );
+            array('id' => $db->lastInsertId(),
+                  'category' => $category -> category
+            ));
     } else {
         echo json_encode(
-            array('Message' => 'Category Not Created')
+            array('Message' => 'Missing Required Parameters')
         );
-    exit();
     }
+    exit();
+    
