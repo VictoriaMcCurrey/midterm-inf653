@@ -15,7 +15,7 @@
     // Set ID to DELETE
     $author -> id = $data -> id;
 
-    $category -> delete();
+    $author -> delete();
 
     // DELETE author
     if($author -> id !== null) {
