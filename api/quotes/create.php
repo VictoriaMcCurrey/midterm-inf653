@@ -18,11 +18,7 @@
     $quote -> categoryId = $data -> categoryId;
 
     // Check for  missing parameters
-    if($quote -> id == null) {
-        echo json_encode(
-            array('Message' => 'Missing Required Parameters'));
-            exit();
-    } elseif ($quote -> quote == null) {
+    if($quote -> quote == null) {
         echo json_encode(
             array('Message' => 'Missing Required Parameters'));
             exit();
