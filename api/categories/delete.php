@@ -24,7 +24,7 @@
         );
     } else {
         echo json_encode(
-            array('Message' => 'category Not Deleted')
+            array('message' => 'category Not Deleted')
         );
     }
     exit();
