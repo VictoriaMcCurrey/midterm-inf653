@@ -30,7 +30,7 @@
     // UPDATE category
     if($category -> update()) {
         echo json_encode(
-            array('id' => $db->lastInsertId(),
+            array('id' => $category -> id,
                   'category' => $category -> category
             ));
     } else {
