@@ -15,8 +15,10 @@
     // Set ID to DELETE
     $author -> id = $data -> id;
 
+    $category -> delete();
+
     // DELETE author
-    if($author -> delete()) {
+    if($author -> id !== null) {
         echo json_encode(
             array('id' => $author -> id)
         );
