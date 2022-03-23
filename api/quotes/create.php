@@ -17,6 +17,25 @@
     $quote -> authorId = $data -> authorId;
     $quote -> categoryId = $data -> categoryId;
 
+    // Check for  missing parameters
+    if($quote -> id == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    } elseif ($quote -> quote == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    } elseif ($quote -> authorId == null) {
+        echo json_encode(
+            array('Message' => 'authorId Not Found'));
+            exit();
+    } elseif ($quote -> categoryId == null) {
+        echo json_encode(
+            array('Message' => 'categoryId Not Found'));
+            exit();
+    } 
+
     // Create quote
     if($quote -> create()) {
         echo json_encode(
@@ -28,7 +47,7 @@
         );
     } else {
         echo json_encode(
-            array('message' => 'quote not created')
+            array('message' => 'No Quotes Found')
         );
         exit();
     }
