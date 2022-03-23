@@ -16,10 +16,8 @@
     $author -> id = $data -> id;
     $author -> author = $data -> author;
     
-    $author -> update()
-    
     // UPDATE author
-    if($author !== null) {
+    if($author -> update()) {
         echo json_encode(
             array('id' => $author -> id,
                   'author' => $author -> author
