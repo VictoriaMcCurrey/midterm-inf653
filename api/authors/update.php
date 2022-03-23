@@ -27,5 +27,5 @@
         echo json_encode(
             array('Message' => 'Missing Required Parameters')
         );
-    exit();
     }
+    exit();
