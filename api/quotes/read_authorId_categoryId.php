@@ -22,7 +22,7 @@
 
     if($num > 0) {
         $quote_arr = array();
-        $quote_arr['data'] = array();
+        //$quote_arr['data'] = array();
    
        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
            extract($row);
@@ -35,7 +35,7 @@
         );
    
              // Push to 'data'
-             array_push($quote_arr['data'], $quote_item);
+             array_push($quote_arr, $quote_item);
     }
     print_r(json_encode($quote_arr));
    
