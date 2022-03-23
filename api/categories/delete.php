@@ -15,10 +15,8 @@
     // Set ID to DELETE
     $category -> id = $data -> id;
 
-    $category -> delete();
-
     // DELETE category
-    if($category -> id !== null) {
+    if($category -> delete()) {
         echo json_encode(
             array('id' => $category -> id)
         );
