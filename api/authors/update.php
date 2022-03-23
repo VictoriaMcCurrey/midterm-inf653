@@ -19,11 +19,11 @@
     // Check for  missing parameters
     if($author -> id == null) {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     } elseif ($author -> author == null) {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters'));
+            array('message' => 'Missing Required Parameters'));
             exit();
     }
     
@@ -35,7 +35,7 @@
             ));
     } else {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters')
+            array('message' => 'Missing Required Parameters')
         );
     }
     exit();
