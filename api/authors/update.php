@@ -25,7 +25,7 @@
             ));
     } else {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters)
+            array('Message' => 'Missing Required Parameters')
         );
     exit();
     }
