@@ -19,12 +19,12 @@
     // UPDATE category
     if($category -> update()) {
         echo json_encode(
-            array('id' => $category -> id,
+            array('id' => $db->lastInsertId(),
                   'category' => $category -> category
             ));
     } else {
         echo json_encode(
             array('Message' => 'Missing Required Parameters')
         );
-    exit();
     }
+    exit();
