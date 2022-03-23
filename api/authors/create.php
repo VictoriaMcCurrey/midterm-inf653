@@ -14,6 +14,11 @@
 
     $author -> author = $data -> author;
 
+    if ($author -> author == null) {
+        echo json_encode(
+            array('Message' => 'Missing Required Parameters'));
+            exit();
+    }
     
 
     // Create Author
