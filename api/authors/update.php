@@ -19,12 +19,12 @@
     // UPDATE author
     if($author -> update()) {
         echo json_encode(
-            array('id' => $author -> id,
+            array('id' => $db->lastInsertId(),
                   'author' => $author -> author
             ));
     } else {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters)
+            array('Message' => 'Missing Required Parameters')
         );
     }
     exit();
