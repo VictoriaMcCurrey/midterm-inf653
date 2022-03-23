@@ -16,16 +16,17 @@
     $author -> id = $data -> id;
     $author -> author = $data -> author;
     
+    $author -> update()
     
     // UPDATE author
-    if($author -> update()) {
+    if($author !== null) {
         echo json_encode(
             array('id' => $author -> id,
                   'author' => $author -> author
             ));
     } else {
         echo json_encode(
-            array('Message' => 'Missing Required Parameters')
+            array('Message' => 'Missing Required Parameters)
         );
     }
     exit();
