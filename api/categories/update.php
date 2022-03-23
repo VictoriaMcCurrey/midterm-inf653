@@ -24,7 +24,7 @@
             ));
     } else {
         echo json_encode(
-            array('Message' => 'Category Not Updated')
+            array('Message' => 'Missing Required Parameters')
         );
     exit();
     }
